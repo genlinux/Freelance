@@ -1,0 +1,50 @@
+<!--
+AuthorName :Genlinux
+Date created:20/11/09
+Forums : Old Nabbie1
+-->
+<html>
+    <head>
+        <script language="javascript" type="text/javascript" src="jquery.js">
+        </script>
+        <script>
+            $(document).ready(function(){
+                //To check the innerHTML  
+                //$('.data').map(function(){(alert(this.innerHTML))});
+                var arr = jQuery.makeArray($('.data'));
+                alert(arr[0].innerHTML + arr[1].innerHTML + arr[2].innerHTML);
+            });
+        </script>
+    </head>
+    <body>
+        <ul>
+            <li class="data">
+                <table>
+                    <tr>
+                        <td>
+                            data1
+                        </td>
+                    </tr>
+                </table>
+            </li>
+            <li class="data">
+                <table>
+                    <tr>
+                        <td>
+                            data2
+                        </td>
+                    </tr>
+                </table>
+            </li>
+            <li class="data">
+                <table>
+                    <tr>
+                        <td>
+                            data3
+                        </td>
+                    </tr>
+                </table>
+            </li>
+        </ul>
+    </body>
+</html>
