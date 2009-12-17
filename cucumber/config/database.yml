@@ -14,35 +14,30 @@
 #
 # And be sure to use new-style password hashing:
 #   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
+#Shortcut to database connection
+mysql_conn: &mysql_conn
+ adapter: mysql
+ encoding: utf8
+ pool: 5
+ username: root
+ password: srishti
+ socket: /var/run/mysqld/mysqld.sock
+ 
 development:
-  adapter: mysql
-  encoding: utf8
   database: cucumber_development
-  pool: 5
-  username: root
-  password:
-  socket: /var/run/mysqld/mysqld.sock
-
+  <<: *mysql_conn
+  
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
-test: &TEST
-  adapter: mysql
-  encoding: utf8
-  database: cucumber_test
-  pool: 5
-  username: root
-  password:
-  socket: /var/run/mysqld/mysqld.sock
 
+test: &TEST
+  database: cucumber_test
+  <<: *mysql_conn
+  
 production:
-  adapter: mysql
-  encoding: utf8
   database: cucumber_production
-  pool: 5
-  username: root
-  password: 
-  socket: /var/run/mysqld/mysqld.sock
+  <<: *mysql_conn
 
 cucumber:
   <<: *TEST
