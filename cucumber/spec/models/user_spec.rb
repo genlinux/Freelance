@@ -13,7 +13,4 @@ describe User do
     new_user.should_not be_valid
   end
 
-  it "should create a new instance given valid attributes" do
-    User.create!(@valid_attributes)
-  end
 end
