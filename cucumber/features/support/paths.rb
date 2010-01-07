@@ -12,7 +12,7 @@ module NavigationHelpers
       '/'
     
   when /the list of users/
-    '/users'
+    users_path
     # Add more mappings here.
     # Here is a more fancy example:
     #

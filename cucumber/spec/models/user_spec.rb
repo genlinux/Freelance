@@ -9,8 +9,8 @@ describe User do
   end
   
   it "should enforce the uniqueness of user" do
-    new_user=User.new(:username=>'Bob')
-    new_user.should_not be_valid
+     new_user=User.new(:username=>'Bob')
+     new_user.should_not be_valid
   end
 
 end

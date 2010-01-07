@@ -4,7 +4,7 @@ Feature: Manage users
   I want to view a list of users
 
 Scenario: User List
-  Given I have users name thillai, arasu
+  Given I have users name George, Mary
   When  I go to the list of users
-  Then I should see "thillai"
-  And I should see "arasu"
+  Then I should see "Mary"
+  And I should see "George"
