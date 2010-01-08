@@ -2,17 +2,17 @@
 #This will explains about basic inheritance
 #Inheriting Pets
 #Normal method
-class Cat
-  attr_accessor :name, :age, :gender, :color
-end
+#class Cat
+#  attr_accessor :name, :age, :gender, :color
+#end
 
-class Dog
-  attr_accessor :name, :age, :gender, :color
-end
+#class Dog
+#  attr_accessor :name, :age, :gender, :color
+#end
 
-class Snake
-  attr_accessor :name, :age, :gender, :color
-end
+#class Snake
+#  attr_accessor :name, :age, :gender, :color
+#end
 
 #Explanation
 #Creating the classes in this way would miss out on one of the best features of
