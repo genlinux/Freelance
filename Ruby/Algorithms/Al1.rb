@@ -15,3 +15,5 @@ def sum(n)
     return result
 end
 puts sum(n)
+
+#This program is used for calcutaing the series of numbers 
