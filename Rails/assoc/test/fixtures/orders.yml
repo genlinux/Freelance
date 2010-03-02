@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  order_date: 2010-03-02 20:45:16
+  references: 
+
+two:
+  order_date: 2010-03-02 20:45:16
+  references: 
