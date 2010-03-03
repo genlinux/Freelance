@@ -1,7 +1,7 @@
 class CreateAccounts < ActiveRecord::Migration
   def self.up
     create_table :accounts do |t|
-      t.supplier :references
+      t.references :supplier
       t.string :account_number
 
       t.timestamps
