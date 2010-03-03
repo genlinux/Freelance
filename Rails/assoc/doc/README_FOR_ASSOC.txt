@@ -33,4 +33,22 @@ Account Load (0.6ms)   SELECT * FROM `accounts` WHERE (`accounts`.supplier_id = 
 Account Columns (1.0ms)   SHOW FIELDS FROM `accounts`
 #<Account id: 1, supplier_id: 1, account_number: nil, created_at: "2010-03-03 12:56:54", updated_at: "2010-03-03 12:56:54">
 
+2.one-to-many
+
+has_many
+
+A has_many association indicates a one-to-many connection with another model. You’ll often find this association on the “other side” of a belongs_to association. This association indicates that each instance of the model has zero or more instances of another model.
+
+class Customer < ActiveRecord::Base
+  has_many :orders
+end
+
+c=Customer.find 1
+Customer Load (0.2ms)   SELECT * FROM `customers` WHERE (`customers`.`id` = 1) 
+#<Customer id: 1, name: "Mahesh", created_at: "2010-03-02 15:40:03", updated_at: "2010-03-02 15:40:03">
+
+c.orders
+Order Load (0.4ms)   SELECT * FROM `orders` WHERE (`orders`.customer_id = 1) 
+Order Columns (0.6ms)   SHOW FIELDS FROM `orders`
+[#<Order id: 1, order_date: "2010-03-02 15:42:37", customer_id: 1, created_at: "2010-03-02 15:42:47", updated_at: "2010-03-02 15:42:47">, #<Order id: 3, order_date: nil, customer_id: 1, created_at: "2010-03-03 13:11:20", updated_at: "2010-03-03 13:12:07">]
  
