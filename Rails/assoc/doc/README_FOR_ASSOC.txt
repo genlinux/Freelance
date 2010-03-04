@@ -51,4 +51,40 @@ c.orders
 Order Load (0.4ms)   SELECT * FROM `orders` WHERE (`orders`.customer_id = 1) 
 Order Columns (0.6ms)   SHOW FIELDS FROM `orders`
 [#<Order id: 1, order_date: "2010-03-02 15:42:37", customer_id: 1, created_at: "2010-03-02 15:42:47", updated_at: "2010-03-02 15:42:47">, #<Order id: 3, order_date: nil, customer_id: 1, created_at: "2010-03-03 13:11:20", updated_at: "2010-03-03 13:12:07">]
+
+has_many :through 
+
+A has_many :through association is often used to set up a many-to-many connection with another model. This association indicates that the declaring model can be matched with zero or more instances of another model by proceeding through a third model. For example, consider a medical practice where patients make appointments to see physicians.
+
+class Physician < ActiveRecord::Base 
+  has_many :appointments  
+  has_many :patients, :through => :appointments 
+end 
+
+class Appointment < ActiveRecord::Base 
+  belongs_to :physician  
+  belongs_to :patient 
+end 
+
+class Patient < ActiveRecord::Base 
+  has_many :appointments  
+  has_many :physicians, :through => :appointments 
+end 
+
+@pat=Patient.find 1
+
+Patient Columns (0.7ms)   SHOW FIELDS FROM `patients`
+Patient Load (0.2ms)   SELECT * FROM `patients` WHERE (`patients`.`id` = 1) 
+
+#<Patient id: 1, name: "Thillai", created_at: "2010-03-04 09:57:43", updated_at: "2010-03-04 09:57:43">
+
+@pat.physicians
+
+Physician Load (0.4ms)   SELECT `physicians`.* FROM `physicians` INNER JOIN `appointments` ON `physicians`.id = `appointments`.physician_id WHERE ((`appointments`.patient_id = 1)) 
+[#<Physician id: 1, name: "Kamesh", created_at: "2010-03-04 10:01:27", updated_at: "2010-03-04 10:01:27">, #<Physician id: 2, name: "Lenin", created_at: "2010-03-04 10:01:35", updated_at: "2010-03-04 10:01:35">]
+
+@phy.patients
+
+Patient Load (0.2ms)   SELECT `patients`.* FROM `patients` INNER JOIN `appointments` ON `patients`.id = `appointments`.patient_id WHERE ((`appointments`.physician_id = 1)) 
+[#<Patient id: 1, name: "Thillai", created_at: "2010-03-04 09:57:43", updated_at: "2010-03-04 09:57:43">]
  
