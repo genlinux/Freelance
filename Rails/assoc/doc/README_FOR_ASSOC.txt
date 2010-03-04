@@ -87,4 +87,8 @@ Physician Load (0.4ms)   SELECT `physicians`.* FROM `physicians` INNER JOIN `app
 
 Patient Load (0.2ms)   SELECT `patients`.* FROM `patients` INNER JOIN `appointments` ON `patients`.id = `appointments`.patient_id WHERE ((`appointments`.physician_id = 1)) 
 [#<Patient id: 1, name: "Thillai", created_at: "2010-03-04 09:57:43", updated_at: "2010-03-04 09:57:43">]
+
+Polymorphic Associations
+
+A slightly more advanced twist on associations is the polymorphic association. With polymorphic associations, a model can belong to more than one other model, on a single association
  
