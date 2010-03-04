@@ -91,4 +91,29 @@ Patient Load (0.2ms)   SELECT `patients`.* FROM `patients` INNER JOIN `appointme
 Polymorphic Associations
 
 A slightly more advanced twist on associations is the polymorphic association. With polymorphic associations, a model can belong to more than one other model, on a single association
- 
+
+Diff between delete & destroy
+
+class Customer < ActiveRecord::Base
+  has_many :orders, :dependent => :destroy
+end
+
+class Order < ActiveRecord::Base
+    belongs_to :customer 
+end
+
+
+customer.orders
+
+Order Load (0.2ms)   SELECT * FROM `orders` WHERE (`orders`.customer_id = 3) 
+[#<Order id: 2, order_date: "2010-03-03 13:11:20", customer_id: 3, created_at: "2010-03-03 13:11:20", updated_at: "2010-03-04 15:18:20">]
+
+customer.destroy
+
+SQL (0.1ms)   BEGIN
+Order Destroy (0.4ms)   DELETE FROM `orders` WHERE `id` = 2
+Customer Destroy (0.2ms)   DELETE FROM `customers` WHERE `id` = 3
+
+SQL (2.6ms)   COMMIT
+
+=> #<Customer id: 3, name: "Kumar", created_at: "2010-03-04 15:16:20", updated_at: "2010-03-04 15:16:20">
