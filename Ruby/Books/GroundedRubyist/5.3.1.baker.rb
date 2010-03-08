@@ -5,12 +5,13 @@ class Cake
     @baked=true
   end
 end
+
 class Egg
-  
 end
+
 class Flour
-  
 end
+
 class Baker
   def bake_cake
     @batter=[]
@@ -19,11 +20,17 @@ class Baker
     stir_batter
     return Cake.new(@batter)
   end
+  
   def pour_flour
     @batter.push(Flour.new)
   end
+  
   def stir_batter
     
+  end
+  
+  def add_egg
+    @batter.push(Egg.new)
   end
   
   private :pour_flour, :add_egg, :stir_batter
