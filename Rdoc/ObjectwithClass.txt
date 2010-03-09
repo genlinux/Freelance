@@ -13,4 +13,7 @@ braces in the loop example delimit the block; the code in the block consists of 
 loop itself is written in C (and uses a C function to achieve the same effect as yield). But the whole idea of looping suggests an interesting exercise: re-implementing loop in pure Ruby. This exercise will give you a first glimpse at yield in action.
 
 
- 
+Map method:
+
+The map method works through an array one item at a time, calling the code block once for each item and creating a new array consisting of the results of all of those
+calls to the block. 
