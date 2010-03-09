@@ -6,3 +6,8 @@ return the value of the last expression evaluated during execution. But = method
 ticket.price = 63.00 is 63.00, even if the ticket= method returns the string “Ha ha!” The idea is to keep the semantics consistent. Under the
 hood, it’s a method call; but it looks like an assignment and behaves like an assignment with respect to its value as an expression.
 
+Iterator:
+
+An iterator is a Ruby method that has an extra ingredient in its calling syntax: it expects you to provide it with a code block. The curly
+braces in the loop example delimit the block; the code in the block consists of the puts statement.
+
