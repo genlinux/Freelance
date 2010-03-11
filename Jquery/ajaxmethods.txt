@@ -1,0 +1,10 @@
+#This file will be the live experience in Jquery projects
+
+
+("#ajax-indicator").ajaxStart(function() {
+              jQuery(this).css({"display":"block"});
+ });
+("#ajax-indicator").ajaxStop(function() {
+              jQuery(this).css({"display":"none"});
+});
+ 
