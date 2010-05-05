@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <style type='text/css'>
+            input[type = "checkbox"] {
+                display: none;
+            }
+            
+            .checkbox {
+                padding: 10px;
+                margin: 5px;
+                cursor: pointer;
+                color: #ffffff;
+                -moz-border-radius: 10px;
+                -webkit-border-radius: 10px;
+            }
+            
+            .checked {
+                background: #ff0000;
+            }
+            
+            .unchecked {
+                background: #000000;
+            }
+        </style>
+        <script language="javascript" type="text/javascript" src="jquery.js">
+        </script>
+        <script>
+            $(document).ready(function(){
+                // assuming all checkboxes are unchecked at first
+                $("span[class='checkbox']").addClass("unchecked")
+				$(".checkbox").click(function(){
+					if($(this).children("input").attr("checked"))
+					{
+						//uncheck
+						$(this).children("input").attr({checked: ""});
+                        $(this).removeClass("checked");
+                        $(this).addClass("unchecked")
+					}
+					else
+					{
+						// check
+                        $(this).children("input").attr({checked: "checked"});
+						$(this).removeClass("unchecked");
+						$(this).addClass("checked");
+					}
+					
+				})
+            });
+        </script>
+    </head>
+    <body>
+        <span class="checkbox">
+            <label>
+                option one
+            </label>
+            <input type="checkbox" name="option" /></span>
+    </body>
+</html>

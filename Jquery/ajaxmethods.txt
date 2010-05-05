@@ -1,10 +1,27 @@
 #This file will be the live experience in Jquery projects
 
+Making all ajax request
 
-("#ajax-indicator").ajaxStart(function() {
-              jQuery(this).css({"display":"block"});
- });
-("#ajax-indicator").ajaxStop(function() {
-              jQuery(this).css({"display":"none"});
+$(document).ready(function(){
+    $("#ajax-indicator").ajaxStart(function(){
+        $(this).css({
+            "display": "block"
+        });
+    });
+    $("#ajax-indicator").ajaxStop(function(){
+        $(this).css({
+            "display": "none"
+        });
+    });
 });
- 
+
+Changing the form on select
+
+$(document).ready(function(){
+    $('#site_id').change(function(){
+        /**$("#site_id").attr("action", "/admin/login/change_website");
+        $("#site_id").submit(); **/
+		document.site.action = "/admin/login/change_website"
+		document.site.submit();
+    });
+});

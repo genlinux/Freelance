@@ -3,3 +3,6 @@ puts "Parent PID: #{Process.pid}"
 p1 = fork { puts "Child process : #{Process.pid}"; sleep 0.1 }
 p2 = fork { puts "Child process : #{Process.pid}"; sleep 0.2 }
 
+def class
+  
+end

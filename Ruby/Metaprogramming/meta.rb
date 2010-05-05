@@ -1,7 +1,10 @@
 class Multipler
-  define_method(:times_2) do |val|
-   val * 2
+def self.create_multiplier(n)
+  define_method("times_#{n}") do |val|
+   val * n
   end
+ end
+ 10.times{|i| create_multiplier(i)}
 end
 c=Multipler.new
-puts c.times_2(4)
+puts c.times_9(3)
