@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  Firstname: MyString
+  Lastname: MyString
+  login: MyString
+  password: MyString
+  activation_code: MyString
+  enabled: false
+
+two:
+  Firstname: MyString
+  Lastname: MyString
+  login: MyString
+  password: MyString
+  activation_code: MyString
+  enabled: false
