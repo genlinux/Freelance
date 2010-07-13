@@ -1,18 +1,36 @@
+<%form_tag (@article) do %>
+<p>
+    <%=label :article_contents,:title %>
+    <br/>
+    <%=text_field :article_contents,:title %>
+</p>
+<p>
+    <%=label :article_contents,:description %>
+    <br/>
+    <%=text_field :article_contents,:description %>
+</p>
+<p>
+    <%=label :article_contents,:content %>
+    <br/>
+    <%=text_field :article_contents,:content %>
+</p>
+<%=submit_tag 'Create' %>
+<%end %>
 <h1>New article</h1>
-<% form_for(@article) do |f| %>
-<%= f.error_messages %>
+<%# form_for(@article) do |f| %>
+<%#= f.error_messages %>
 <p>
-    <%=f.label :status %>
+    <%#=f.label :status %>
     <br/>
-    <%=f.radio_button :status,:checkbox%>
+    <%#=f.radio_button :status,:checkbox %>
 </p>
 <p>
-    <%=f.label :published_at %>
+    <%#=f.label :published_at %>
     <br/>
-    <%=f.datetime_select :published_at %>
+    <%#=f.datetime_select :published_at %>
 </p>
 <p>
-    <%= f.submit 'Create' %>
+    <%#= f.submit 'Create' %>
 </p>
-<% end %>
+<%# end %>
 <%= link_to 'Back', articles_path %>
