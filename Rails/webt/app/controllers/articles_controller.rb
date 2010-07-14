@@ -35,6 +35,7 @@ class ArticlesController < ApplicationController
   # GET /articles/1/edit
   def edit
     @article = Article.find(params[:id])
+    @article_contents = @article.article_contents.find_by_article_id(@article.id)
   end
 
   # POST /articles
