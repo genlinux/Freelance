@@ -6,28 +6,14 @@
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title>Articles: <%= controller.action_name %></title>
   <%= stylesheet_link_tag 'scaffold' %>
-  <%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/redmond/jquery-ui.css", "application" %>
+  <%= stylesheet_link_tag "jquery-ui.css", "application" %>
   <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js", "application" %>
 <script type="text/javascript">
    $(function (){
-    $('#article_published_at').datepicker();
+    $('#article_contents_published_at').datepicker({inline:true});
     });
 </script>
-<script type="text/javascript">
-$(function()
-{
-	$('#article_published_at')
-		.datepicker({inline:true})
-		.bind(
-			'dateSelected',
-			function(e, selectedDate, $td)
-			{
-				$('#article_published_at').val(selectedDate.asString());
 
-			}
-		);
-});
-</script>
 </head>
 <body>
 

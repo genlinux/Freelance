@@ -2,6 +2,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users
 
   map.resources :articles, :has_many => :article_contents
+  
+  map.login '/login', :controller=>'users',:action=>'login'
 
   # The priority is based upon order of creation: first created -> highest priority.
 

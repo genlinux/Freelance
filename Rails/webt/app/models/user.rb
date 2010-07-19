@@ -1,4 +1,28 @@
 class User < ActiveRecord::Base
+  
+  #Accessor
+  attr_accessor :password_confirmation
+  attr_protected :password,:enabled
+  
+  validates_presence_of :jude
+  
+  # echo "typo" | sha1sum -
+  @@salt = '20ac4d290c2293702c64b3b287ae5ea79b26a5c1'
+  cattr_accessor :salt
+  
+  #Callbacks
+  def before_save
+    self.password = User.sha1(password) if !self.password.blank?
+  end
+  
+
+
+  protected
+  
+  def self.sha1(pass)
+    Digest::SHA1.hexdigest("#{salt}--#{pass}--")
+  end
+  
 end
 
 # == Schema Information
@@ -15,4 +39,3 @@ end
 #  created_at      :datetime
 #  updated_at      :datetime
 #
-
