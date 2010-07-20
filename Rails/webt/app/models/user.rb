@@ -1,10 +1,10 @@
+require 'digest/sha1'
 class User < ActiveRecord::Base
   
   #Accessor
   attr_accessor :password_confirmation
   attr_protected :password,:enabled
   
-  validates_presence_of :jude
   
   # echo "typo" | sha1sum -
   @@salt = '20ac4d290c2293702c64b3b287ae5ea79b26a5c1'
@@ -12,7 +12,9 @@ class User < ActiveRecord::Base
   
   #Callbacks
   def before_save
+    debugger
     self.password = User.sha1(password) if !self.password.blank?
+    self.enabled  = true
   end
   
 
